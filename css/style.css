@@ -17,9 +17,9 @@
     background: transparent;
     line-height: 1.2;
   }
-  /* Light mode: make desktop nav links lilac */
+  /* Light mode: darker purple for desktop nav links */
   html[data-theme="light"] nav.nav-menu a {
-    color: var(--accent2);
+    color: #7e22ce; /* darker purple */
   }
   html[data-theme="light"] nav.nav-menu a:hover {
     text-decoration: underline;
@@ -371,11 +371,12 @@ h2 {
   gap: 16px;
 }
 
-/* Center the grid in the about-centered section (projects page) */
+/* Projects page cards: keep equal widths using CSS grid */
 .about-centered .grid {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
+  align-items: stretch;
 }
 .card {
   background: var(--panel);
@@ -504,6 +505,10 @@ footer {
     transition: right 0.3s ease;
     z-index: 5001;               /* sit above hamburger and other header elements */
   }
+  /* Light mode: darker purple mobile nav links */
+  html[data-theme="light"] .nav-menu a { color: #7e22ce; }
+  /* Light mode: keep hamburger bars black */
+  html[data-theme="light"] .hamburger span { background: #0b0b10; }
   .nav-menu.active {
     right: 0;
   }
@@ -615,9 +620,18 @@ footer {
 /* Projects Page Styles */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: 1fr; /* mobile default single column */
   gap: 2rem;
   margin-top: 2rem;
+}
+/* Projects page: enforce consistent card widths across 3 columns on larger screens */
+@media (min-width: 900px) {
+  body.projects-page .projects-grid {
+    grid-template-columns: repeat(3, 1fr); /* exactly three equal columns */
+    max-width: 1100px; /* optional: constrain overall width to avoid over-stretch */
+    margin-inline: auto;
+  }
+  body.projects-page .projects-grid .card { width: 100%; }
 }
 
 .project-card {
@@ -805,6 +819,7 @@ body.projects-page .grid .card [aria-hidden="true"] { margin-top: auto; }
   border: 1px solid #22263a;
   border-radius: 16px;
   padding: 2rem;
+  box-sizing: border-box; /* ensure padding is symmetric and respected */
 }
 html[data-theme="light"] .contact-form {
   border-color: #e2e8f0;
@@ -829,6 +844,8 @@ html[data-theme="light"] .contact-form {
   background: var(--bg);
   color: var(--txt);
   font-family: inherit;
+  width: 100%;
+  box-sizing: border-box;
 }
 html[data-theme="light"] .contact-form input,
 html[data-theme="light"] .contact-form textarea {
@@ -847,6 +864,8 @@ html[data-theme="light"] .contact-form textarea {
   cursor: pointer;
   font-weight: 600;
 }
+/* Reserve space for textarea scrollbar so right padding doesn't look smaller */
+.contact-form textarea { scrollbar-gutter: stable both-edges; }
 
 .form-group {
   margin-bottom: 1.5rem;
