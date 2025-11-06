@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+
+  <title>Welcome to Wordle</title>
+
+  <!-- Link to Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/cover.css">
+  <link rel="stylesheet" href="../../css/style.css">
+  <script>(function(){try{var t=localStorage.getItem('nf-theme')||localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+  <script src="js/main.js" defer></script>
+  
+</head>
+
+<body class="h-100 text-white bg-dark">
+  <div class="wrap">
+  <header>
+    <div class="brand">
+      <a href="../../index.html">
+        <img src="../../img/nflogo.jpg" alt="NF Logo" class="logo" />
+      </a>
+      <div>
+        <strong>Nicole Fedyszyn</strong><br>
+  <span style="color:var(--muted)">Web Developer Bridging Design, Data & Healthcare</span>
+      </div>
+    </div>
+    <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav aria-label="Primary" class="nav-menu">
+      <a href="../../index.html">Home</a>
+      <a href="../../projects.html">Projects</a>
+      <a href="../../skills.html">Skills</a>
+      <a href="../../about.html">About</a>
+      <a href="../../contact.html">Contact</a>
+    </nav>
+  </header>
+  </div>
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+    <main class="px-3 container">
+
+      <h1 id="title" class="text-center">Wordle</h1>
+
+      <form class="wordle" id="wordle-form">
+        <div class="wordle-fields">
+          <div class="mb-3">
+            <input name="guess" type="text" class="form-control" id="movie-filter">
+            <div class="invalid-feedback">
+              Invalid Guess, Guess needs to be 5 letters
+            </div>
+          </div>
+          <div class="mb-3">
+            <button type="submit" class="btn btn-primary" style="width:100%;font-size:1.1rem;">Guess</button>
+          </div>
+        </div>
+
+        <div class="wordle-success alert alert-success m-5 text-center hidden" role="alert">
+          You did it!
+        </div>
+        <div class="wordle">
+          <div class="guess-0 guesses d-flex flex-row align-items-center justify-content-between">
+            <div class=" guess-character"></div>
+            <div class=" guess-character"></div>
+            <div class=" guess-character"></div>
+            <div class=" guess-character"></div>
+            <div class=" guess-character"></div>
+          </div>
+          <div class="guess-1 guesses d-flex flex-row align-items-center justify-content-between">
+            <div class=" guess-character"></div>
+            <div class=" guess-character"></div>
+            <div class=" guess-character"></div>
+            <div class=" guess-character"></div>
+            <div class=" guess-character"></div>
+          </div>
+          <div class="guess-2 guesses d-flex flex-row align-items-center justify-content-between">
+            <div class=" guess-character"></div>
+            <div class=" guess-character"></div>
+            <div class=" guess-character"></div>
+            <div class=" guess-character"></div>
+            <div class=" guess-character"></div>
+          </div>
+          <div class="guess-3 guesses d-flex flex-row align-items-center justify-content-between">
+            <div class=" guess-character"></div>
+            <div class=" guess-character"></div>
+            <div class=" guess-character"></div>
+            <div class=" guess-character"></div>
+            <div class=" guess-character"></div>
+          </div>
+          <div class="guess-4 guesses d-flex flex-row align-items-center justify-content-between">
+            <div class=" guess-character"></div>
+            <div class=" guess-character"></div>
+            <div class=" guess-character"></div>
+            <div class=" guess-character"></div>
+            <div class=" guess-character"></div>
+          </div>
+          <div class="guess-5 guesses d-flex flex-row align-items-center justify-content-between">
+            <div class=" guess-character"></div>
+            <div class=" guess-character"></div>
+            <div class=" guess-character"></div>
+            <div class=" guess-character"></div>
+            <div class=" guess-character"></div>
+          </div>
+        </div>
+        <div class="keyboard mt-4">
+          <div class="keyboard-row">
+            <div class="key" data-key="q">Q</div>
+            <div class="key" data-key="w">W</div>
+            <div class="key" data-key="e">E</div>
+            <div class="key" data-key="r">R</div>
+            <div class="key" data-key="t">T</div>
+            <div class="key" data-key="y">Y</div>
+            <div class="key" data-key="u">U</div>
+            <div class="key" data-key="i">I</div>
+            <div class="key" data-key="o">O</div>
+            <div class="key" data-key="p">P</div>
+          </div>
+          <div class="keyboard-row">
+            <div class="key" data-key="a">A</div>
+            <div class="key" data-key="s">S</div>
+            <div class="key" data-key="d">D</div>
+            <div class="key" data-key="f">F</div>
+            <div class="key" data-key="g">G</div>
+            <div class="key" data-key="h">H</div>
+            <div class="key" data-key="j">J</div>
+            <div class="key" data-key="k">K</div>
+            <div class="key" data-key="l">L</div>
+          </div>
+          <div class="keyboard-row">
+            <div class="key" data-key="z">Z</div>
+            <div class="key" data-key="x">X</div>
+            <div class="key" data-key="c">C</div>
+            <div class="key" data-key="v">V</div>
+            <div class="key" data-key="b">B</div>
+            <div class="key" data-key="n">N</div>
+            <div class="key" data-key="m">M</div>
+          </div>
+        </div>
+    </main>
+  </div>
+  <script src="../../js/hamburger.js"></script>
+  <script src="../../js/theme-toggle.js"></script>
+</body>
+
+</html>
