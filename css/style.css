@@ -382,6 +382,8 @@ h2 {
   border: 1px solid #22263a;
   border-radius: 16px;
   padding: 16px;
+  display: flex; /* allow equal height layout */
+  flex-direction: column;
 
 }
 html[data-theme="light"] .card {
@@ -640,6 +642,13 @@ footer {
 .project-content {
   padding: 1.5rem;
 }
+
+/* Projects page: equalize card heights */
+body.projects-page .grid { align-items: stretch; }
+body.projects-page .grid .card { height: 100%; }
+body.projects-page .grid .card .project-links { margin-top: auto; }
+/* Also push placeholder area in capstone card to bottom */
+body.projects-page .grid .card [aria-hidden="true"] { margin-top: auto; }
 
 .project-content h3 {
   margin: 0 0 1rem 0;
