@@ -1,70 +1,60 @@
-(function(){
-  function encodeRFC3986URIComponent(str){
-    return encodeURIComponent(str).replace(/[!'()*]/g, function(c){
-      return '%' + c.charCodeAt(0).toString(16).toUpperCase();
-    });
+(function () {
+  const form = document.getElementById('contact-form');
+  if (!form) return;
+
+  const statusBox = document.getElementById('contact-status');
+  const button = form.querySelector('button[type="submit"]');
+
+  function encode(data) {
+    return Object.keys(data)
+      .map((k) => encodeURIComponent(k) + '=' + encodeURIComponent(data[k]))
+      .join('&');
   }
 
-  function byId(id){ return document.getElementById(id); }
-
-  function onSubmit(e){
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    var first = byId('firstName').value.trim();
-    var last = byId('lastName').value.trim();
-    var email = byId('email').value.trim();
-    var subject = byId('subject').value.trim();
-    var message = byId('message').value.trim();
-    var honeypot = byId('company').value.trim();
-    var status = byId('contact-status');
 
-    // simple validation
-    if (honeypot) { return; } // likely bot
-    if (!first || !last || !email || !message){
-      status.textContent = 'Please fill in first name, last name, email, and message.';
-      status.style.color = 'var(--err, #ff9ba8)';
-      return;
+    // Build payload, includes required form-name
+    const formData = new FormData(form);
+    // Netlify requires form-name in the body as well
+    if (!formData.has('form-name')) formData.append('form-name', form.getAttribute('name'));
+
+    const body = encode(Object.fromEntries(formData.entries()));
+
+    // UI: lock button
+    if (button) {
+      button.disabled = true;
+      button.textContent = 'Sending…';
     }
-    // rudimentary email check
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
-      status.textContent = 'Please enter a valid email address.';
-      status.style.color = 'var(--err, #ff9ba8)';
-      return;
+    if (statusBox) {
+      statusBox.textContent = '';
     }
 
-    var to = 'fedyszynn@gmail.com';
-    var finalSubject = subject || ('Portfolio contact from ' + first + ' ' + last);
-    var bodyLines = [
-      'Name: ' + first + ' ' + last,
-      'Email: ' + email,
-      '',
-      'Message:',
-      message,
-      '',
-      '-- Sent from nicolefedyszyn.com portfolio contact form --'
-    ];
-    var body = bodyLines.join('\n');
-
-    var href = 'mailto:' + to + '?subject=' + encodeRFC3986URIComponent(finalSubject) + '&body=' + encodeRFC3986URIComponent(body);
-
-    // Try opening mail client
     try {
-      window.location.href = href;
-      status.textContent = 'Opening your email client to send the message…';
-      status.style.color = 'var(--muted, #aab1c3)';
+      const res = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body
+      });
+
+      if (!res.ok) throw new Error('Network response was not ok');
+
+      // Success UI
+      form.reset();
+      if (statusBox) {
+        statusBox.style.color = 'var(--ok, #1a7f37)';
+        statusBox.textContent = 'Thanks! Your message was sent. ✅';
+      }
     } catch (err) {
-      status.innerHTML = 'Couldn\'t open your email app. You can email me at <a href="mailto:' + to + '">' + to + '</a>.';
-      status.style.color = 'var(--err, #ff9ba8)';
+      if (statusBox) {
+        statusBox.style.color = 'var(--err, #b42318)';
+        statusBox.textContent = 'Sorry—something went wrong. Please try again. ❌';
+      }
+    } finally {
+      if (button) {
+        button.disabled = false;
+        button.textContent = 'Send Message';
+      }
     }
-  }
-
-  function init(){
-    var form = document.getElementById('contact-form');
-    if (form){ form.addEventListener('submit', onSubmit); }
-  }
-
-  if (document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+  });
 })();

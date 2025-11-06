@@ -800,6 +800,44 @@ footer {
 html[data-theme="light"] .contact-form {
   border-color: #e2e8f0;
 }
+/* Contact form layout enhancement */
+.contact-form {
+  max-width: 560px;
+  margin: 0 auto; /* center form */
+  display: grid;
+  gap: 12px;
+}
+.contact-form .form-group {
+  display: grid;
+  gap: 6px; /* tighter label/input spacing */
+  margin: 0; /* remove large bottom margin; spacing handled by grid gap */
+}
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--txt);
+  font-family: inherit;
+}
+html[data-theme="light"] .contact-form input,
+html[data-theme="light"] .contact-form textarea {
+  border-color: #cbd5e1;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--accent2);
+  box-shadow: 0 0 0 2px color-mix(in oklab, var(--accent2) 55%, transparent);
+}
+.contact-form .btn {
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
 
 .form-group {
   margin-bottom: 1.5rem;
