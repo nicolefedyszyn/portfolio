@@ -1,3 +1,4 @@
+# netlify.toml
 [build]
-command = ""
-publish = "."
+command = ""     # no build for static site
+publish = "."    # publish the current directory (root with index.html)
