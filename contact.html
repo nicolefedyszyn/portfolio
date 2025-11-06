@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact — Nicole Fedyszyn | Web Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script>(function(){try{var t=localStorage.getItem('nf-theme')||localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+</head>
+<body class="contact-page">
+    <div class="wrap">
+        <header>
+            <div class="brand">
+                <a href="index.html">
+                    <img src="img/nflogo.jpg" alt="NF Logo" class="logo" />
+                </a>
+                <div>
+                    <strong>Nicole Fedyszyn</strong><br>
+                    <span style="color:var(--muted)">Web Developer Bridging Design, Data & Healthcare</span>
+                </div>
+            </div>
+            <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav aria-label="Primary" class="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="projects.html">Projects</a>
+                <a href="skills.html">Skills</a>
+                <a href="about.html">About</a>
+                <a href="contact.html" style="color: var(--txt)">Contact</a>
+            </nav>
+        </header>
+
+        <section class="hero hero-center">
+            <div class="hero-text-center">
+                <h1>Get In Touch</h1>
+                <p class="sub">Let's connect and discuss opportunities in web development and health informatics.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2 style="text-align: center;">Contact Me</h2>
+            <form id="contact-form" class="contact-form" aria-describedby="contact-note">
+                <div class="form-group">
+                    <label for="firstName">First name</label>
+                    <input id="firstName" name="firstName" type="text" autocomplete="given-name" required />
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last name</label>
+                    <input id="lastName" name="lastName" type="text" autocomplete="family-name" required />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" autocomplete="email" required />
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject (optional)</label>
+                    <input id="subject" name="subject" type="text" />
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6" required placeholder="How can I help?"></textarea>
+                </div>
+                <!-- Honeypot for bots -->
+                <div style="position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;">
+                    <label for="company">Company</label>
+                    <input id="company" name="company" type="text" tabindex="-1" autocomplete="off" />
+                </div>
+                <div class="form-group" style="margin-top: 1rem;">
+                    <button type="submit" class="btn">Send Message</button>
+                </div>
+                <p id="contact-note" class="meta" style="margin-top: 8px;">I’ll reply within 24 hours. Your info stays private.</p>
+                <div id="contact-status" class="meta" aria-live="polite" style="margin-top:8px;"></div>
+            </form>
+        </section>
+
+        <section style="padding: 32px 0;">
+            <h2 class="two" style="padding: 0 7vw; max-width: 1100px; margin: 0 auto;">Let's Work Together</h2>
+            <div class="two" style="padding: 0 7vw; max-width: 1100px; margin: 0 auto;">
+                <div>
+                    <p>I'm always interested in discussing new opportunities, whether that's a full-time role, freelance project, or collaboration. With my background in healthcare and passion for accessible web development, I bring a unique perspective to every project.</p>
+                    <p>Currently available for opportunities starting January 2026 after completing my Web Design & Development program at NAIT.</p>
+                </div>
+                <div>
+                    <p>Feel free to reach out if you'd like to discuss how my skills in web development and health informatics could benefit your team or project. I'm particularly interested in roles that combine technology with healthcare or focus on creating accessible, user-centered digital experiences.</p>
+                    <p>I typically respond to emails within 24 hours and am happy to schedule a call or video chat to discuss potential collaborations.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <small>© <span id="y"></span> Nicole Fedyszyn • Edmonton, AB • Accessibility‑first</small>
+        </footer>
+    </div>
+    <script src="js/hamburger.js"></script>
+    <script src="js/theme-toggle.js"></script>
+    <script src="js/contact.js"></script>
+    <script>
+        document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

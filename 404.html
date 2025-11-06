@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>404 Not Found — Nicole Fedyszyn</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+      .centered404 { min-height: 70vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+      .centered404 h1 { font-size: 4rem; margin-bottom: 0.5em; }
+      .centered404 p { color: var(--muted); font-size: 1.3rem; }
+      .centered404 a.btn { margin-top: 2em; }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div class="brand">
+                <a href="index.html">
+                    <img src="img/nflogo.jpg" alt="NF Logo" class="logo" />
+                </a>
+                <div>
+                    <strong>Nicole Fedyszyn</strong><br>
+                    <span style="color:var(--muted)">Web Developer Bridging Design, Data & Healthcare</span>
+                </div>
+            </div>
+        </header>
+        <main class="centered404">
+            <h1>404</h1>
+            <p>Sorry, the page you’re looking for can’t be found.</p>
+            <a href="index.html" class="btn">Back to Home</a>
+        </main>
+        <footer>
+            <small>© <span id="y"></span> Nicole Fedyszyn • Edmonton, AB • Accessibility‑first</small>
+        </footer>
+    </div>
+    <script>
+        document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

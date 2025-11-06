@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact — Nicole Fedyszyn | Web Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div class="brand">
+                <img src="img/nflogo.jpg" alt="NF Logo" class="logo" style="width: 80px; height: 80px; object-fit: cover; border: none !important; outline: none !important; box-shadow: none !important; background: none !important; border-radius: 0 !important;" />
+                <div>
+                    <strong>Nicole Fedyszyn</strong><br>
+                    <span style="color:var(--muted)">Web Developer Bridging Design, Data & Healthcare</span>
+                </div>
+            </div>
+            <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav aria-label="Primary" class="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="projects.html">Projects</a>
+                <a href="skills.html">Skills</a>
+                <a href="about.html">About</a>
+                <a href="contact.html" style="color: var(--txt)">Contact</a>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <div>
+                <h1>Get In Touch</h1>
+                <p class="sub">Let's connect and discuss opportunities in web development and health informatics.</p>
+            </div>
+            <div>
+                <img src="img/nflogo.jpg" alt="Nicole Fedyszyn Logo" class="profile-image" style="width: 220px; height: 220px; object-fit: cover; margin: 0 auto; display: block; border: none; box-shadow: none; background: none; border-radius: 50%;">
+            </div>
+        </section>
+
+        <section>
+            <h2>Contact Information</h2>
+            <div class="two">
+                <div>
+                    <h3>Email</h3>
+                    <p><a href="mailto:nicole.fedyszyn@example.com">nicole.fedyszyn@example.com</a></p>
+                    
+                    <h3>Phone</h3>
+                    <p><a href="tel:+1234567890">(123) 456-7890</a></p>
+                </div>
+                <div>
+                    <h3>LinkedIn</h3>
+                    <p><a href="https://linkedin.com/in/nicolefedyszyn" target="_blank">linkedin.com/in/nicolefedyszyn</a></p>
+                    
+                    <h3>GitHub</h3>
+                    <p><a href="https://github.com/nicolefedyszyn" target="_blank">github.com/nicolefedyszyn</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Let's Work Together</h2>
+            <div class="two">
+                <div>
+                    <p>I'm always interested in discussing new opportunities, whether that's a full-time role, freelance project, or collaboration. With my background in healthcare and passion for accessible web development, I bring a unique perspective to every project.</p>
+                    <p>Currently available for opportunities starting January 2026 after completing my Web Design & Development program at NAIT.</p>
+                </div>
+                <div>
+                    <p>Feel free to reach out if you'd like to discuss how my skills in web development and health informatics could benefit your team or project. I'm particularly interested in roles that combine technology with healthcare or focus on creating accessible, user-centered digital experiences.</p>
+                    <p>I typically respond to emails within 24 hours and am happy to schedule a call or video chat to discuss potential collaborations.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; <span id="y"></span> Nicole Fedyszyn. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

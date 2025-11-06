@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About — Nicole Fedyszyn | Web Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script>(function(){try{var t=localStorage.getItem('nf-theme')||localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div class="brand">
+                <a href="index.html">
+                    <img src="img/nflogo.jpg" alt="NF Logo" class="logo" />
+                </a>
+                <div>
+                    <strong>Nicole Fedyszyn</strong><br>
+                    <span style="color:var(--muted)">Web Developer Bridging Design, Data & Healthcare</span>
+                </div>
+            </div>
+            <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav aria-label="Primary" class="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="projects.html">Projects</a>
+                <a href="skills.html">Skills</a>
+                <a href="about.html" style="color: var(--txt)">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <div>
+                <h1>About Nicole</h1>
+                <p class="sub">From healthcare administration to web development — bringing systematic problem-solving and user-focused thinking to every project.</p>
+            </div>
+            <div class="profile-ring">
+                <img src="img/profile.webp" alt="Nicole Fedyszyn" class="profile-image" />
+            </div>
+        </section>
+
+        <section id="about" aria-labelledby="about-h">
+            <h2 id="about-h">My Story</h2>
+            <div class="two">
+                <div>
+                    <h3>Healthcare Background</h3>
+                    <p>I bring 8+ years of experience in pharmacy and optometry administration, where I've worked extensively with EMR platforms like Kroll and Healthquest. This background gives me unique insight into healthcare workflows, data management challenges, and the critical importance of user-friendly interfaces in clinical settings.</p>
+                    <p>My healthcare experience taught me to think systematically about complex processes, prioritize accessibility, and always consider the end user's needs - skills that translate perfectly to web development.</p>
+                </div>
+                <div>
+                    <h3>Technical Journey</h3>
+                    <p>Currently completing NAIT's DMIT – Web Design & Development program (graduating December 2025). I'm passionate about creating clean, accessible websites and workflows that solve real problems.</p>
+                    <p>I specialize in frontend development with HTML, CSS, and JavaScript, with a particular focus on responsive design, and user experience optimization.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>What Drives Me</h2>
+            <div class="two">
+                <div>
+                    <h3>Problem-Solving Philosophy</h3>
+                    <p>I believe good web development should feel effortless to users. When someone can complete a task without thinking about the interface, that's when I know I've done my job well. Coming from healthcare, I've seen how confusing systems can slow down important work, so I focus on creating websites that people actually want to use.</p>
+                </div>
+                <div>
+                    <h3>Collaboration Style</h3>
+                    <p>My healthcare background taught me the importance of clear communication with diverse team members. I'm comfortable working with both technical teams and end users, translating between business needs and technical solutions.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Looking Forward</h2>
+            <div class="card" style="text-align: center; padding: 32px;">
+                <h3>Career Goals</h3>
+                <p>I'm seeking opportunities that blend web development with healthcare technology, data management, or user experience design. I'm particularly interested in roles where I can apply my systematic approach to solving real-world problems through code.</p>
+                <div class="cta cta-center" style="margin-top: 24px;">
+                    <a href="contact.html" class="btn">Let's Work Together</a>
+                    <a href="projects.html" class="btn alt">View My Work</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <small>© <span id="y"></span> Nicole Fedyszyn • Edmonton, AB • Accessibility‑first</small>
+        </footer>
+    </div>
+
+    <script src="js/hamburger.js"></script>
+    <script src="js/theme-toggle.js"></script>
+    <script>
+        document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

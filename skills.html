@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Skills — Nicole Fedyszyn | Web Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script>(function(){try{var t=localStorage.getItem('nf-theme')||localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+</head>
+<body class="skills-page">
+    <div class="wrap">
+        <header>
+            <div class="brand">
+                <a href="index.html">
+                    <img src="img/nflogo.jpg" alt="NF Logo" class="logo" />
+                </a>
+                <div>
+                    <strong>Nicole Fedyszyn</strong><br>
+                    <span style="color:var(--muted)">Web Developer Bridging Design, Data & Healthcare</span>
+                </div>
+            </div>
+            <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav aria-label="Primary" class="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="projects.html">Projects</a>
+                <a href="skills.html" style="color: var(--txt)">Skills</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </header>
+
+        <section class="hero hero-center">
+            <div class="hero-text-center">
+                <h1>My Skills</h1>
+                <p class="sub">Technologies and tools I work with to create accessible, user-focused web applications.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="grid">
+                <div class="card">
+                    <h3>Healthcare & EMR</h3>
+                    <p class="meta">Health Informatics</p>
+                    <p>I leverage my experience with EMR systems and health informatics to ensure data privacy and optimize clinical workflows in every project.</p>
+                    <div class="skills">
+                        <span class="chip">EMR Systems</span>
+                        <span class="chip">Healthcare Data</span>
+                        <span class="chip">Data Privacy</span>
+                        <span class="chip">Clinical Workflows</span>
+                        <span class="chip">Kroll EMR</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Frontend Development</h3>
+                    <p class="meta">Web UI/UX</p>
+                    <p>I use modern frontend technologies to build accessible, responsive, and user-friendly interfaces for all users.</p>
+                    <div class="skills">
+                        <span class="chip">HTML5</span>
+                        <span class="chip">CSS3</span>
+                        <span class="chip">Figma</span>
+                        <span class="chip">JavaScript</span>
+                        <span class="chip">Bootstrap</span>
+                        <span class="chip">Responsive Design</span>
+                        <span class="chip">Accessibility</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Database/Back End Development</h3>
+                    <p class="meta">Data & Server</p>
+                    <p>My database and back end skills include designing data models, building dynamic sites with PHP, managing content with Wordpress CMS, and working efficiently with SQL and CSV data.</p>
+                    <div class="skills">
+                        <span class="chip">MySQL</span>
+                        <span class="chip">Database Creation</span>
+                        <span class="chip">PHP</span>
+                        <span class="chip">Wordpress CMS</span>
+                        <span class="chip">CSV (Import/Export)</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Soft Skills</h3>
+                    <p class="meta">Collaboration</p>
+                    <p>Strong communication, collaboration, and adaptability help me deliver successful projects and work effectively with diverse teams.</p>
+                    <div class="skills">
+                        <span class="chip">Collaboration</span>
+                        <span class="chip">Communication</span>
+                        <span class="chip">Problem Solving</span>
+                        <span class="chip">Adaptability</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            
+        </section>
+
+
+
+
+
+        <footer>
+            <small>© <span id="y"></span> Nicole Fedyszyn • Edmonton, AB • Accessibility‑first</small>
+        </footer>
+    </div>
+
+    <script src="js/hamburger.js"></script>
+    <script src="js/theme-toggle.js"></script>
+    <script>
+        document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

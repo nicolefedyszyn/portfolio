@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Nicole Fedyszyn</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script>(function(){try{var t=localStorage.getItem('nf-theme')||localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+</head>
+<body class="projects-page">
+    <div class="wrap">
+        <header>
+            <div class="brand">
+                <a href="index.html">
+                    <img src="img/nflogo.jpg" alt="NF Logo" class="logo" />
+                </a>
+                <div>
+                    <strong>Nicole Fedyszyn</strong><br>
+                    <span style="color:var(--muted)">Web Developer Bridging Design, Data & Healthcare</span>
+                </div>
+            </div>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav aria-label="Primary" class="nav-menu" id="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="projects.html" class="active">Projects</a>
+                <a href="skills.html">Skills</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </header>
+
+        <section class="hero hero-center">
+            <div class="hero-text-center">
+                <h1>My Projects</h1>
+                <p class="sub">Explore some of the work I've done</p>
+            </div>
+        </section>
+
+        <section class="about-centered">
+            <h2 style="text-align: center;">Featured Projects</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Wordle Game</h3>
+                    <p class="meta">HTML, CSS, JavaScript</p>
+                    <p>A recreation of the popular Wordle game built with vanilla JavaScript. Features include word validation, color-coded feedback, keyboard interaction, and a responsive design that works across all devices.</p>
+                    
+                    <div class="project-links">
+                        <a href="projects/wordle/index.html" class="btn">Live Demo</a>
+                        <a href="https://github.com/nicolefedyszyn/wordle" class="btn alt" target="_blank">GitHub</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Prescription / Vaccine Booking</h3>
+                    <p class="meta">UX/UI Design & Development</p>
+                    <p>A streamlined 3-step booking flow prototype that reduces clicks and cognitive load compared to traditional 6-step forms. Focused on health informatics and user experience optimization.</p>
+                
+                    <div class="project-links">
+                        <a href="projects/booking/index.html" class="btn">Live Demo</a>
+                        <a href="https://github.com/nicolefedyszyn/booking" class="btn alt" target="_blank">GitHub</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Fat Man Little Kitchen (NAIT Capstone)</h3>
+                    <p class="meta">Website build
+                        <span class="badge construction" aria-label="Under construction">
+                            <svg class="icon hazard" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" role="img">
+                                <!-- Filled warning triangle -->
+                                <path fill="#facc15" d="M12 3c-.7 0-1.34.36-1.7.96L2.44 18.05c-.72 1.2.16 2.7 1.7 2.7h15.72c1.54 0 2.42-1.5 1.7-2.7L13.7 3.96A1.95 1.95 0 0 0 12 3z"/>
+                                <!-- Exclamation bar -->
+                                <rect x="11" y="9" width="2" height="6" rx="1" fill="#0b0b10" />
+                                <!-- Exclamation dot -->
+                                <rect x="11" y="16" width="2" height="2" rx="1" fill="#0b0b10" />
+                            </svg>
+                            Under Construction
+                        </span>
+                    </p>
+                    <p>A capstone website project for FatManLittleKitchen.com, a locally owned hot sauce company. Currently in active development with a focus on clean information architecture, accessible UI, fast performance, and a streamlined e‑commerce experience (product catalog, cart, and checkout flow).</p>
+                    <div class="project-links" aria-hidden="true" style="display:flex; gap:12px; flex-wrap:wrap;">
+                        <!-- Placeholder area intentionally left without active buttons while in construction -->
+                    </div>
+                </div>
+
+                
+            </div>
+        </section>
+
+        <section>
+            <div class="card" style="text-align: left; padding: 32px; max-width: 600px; margin: 0 auto;">
+                <h2>About My Work</h2>
+                <h3>Development Approach</h3>
+                <p>I focus on creating clean, accessible, and performant web applications. Every project starts with thorough planning and user research to ensure the final product meets both user needs and business goals.</p>
+                <ul style="color: var(--muted); line-height: 1.6; padding-left: 1.2em;">
+                    <li>Mobile-first responsive design</li>
+                    <li>Semantic HTML and accessibility standards</li>
+                    <li>Performance optimization</li>
+                    <li>Cross-browser compatibility</li>
+                </ul>
+            </div>
+        </section>
+
+        <footer>
+            <small>© <span id="y"></span> Nicole Fedyszyn • Edmonton, AB • Accessibility‑first</small>
+        </footer>
+    </div>
+
+    <script src="js/hamburger.js"></script>
+    <script src="js/theme-toggle.js"></script>
+    <script>
+        document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
