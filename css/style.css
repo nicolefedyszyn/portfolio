@@ -17,6 +17,13 @@
     background: transparent;
     line-height: 1.2;
   }
+  /* Light mode: make desktop nav links lilac */
+  html[data-theme="light"] nav.nav-menu a {
+    color: var(--accent2);
+  }
+  html[data-theme="light"] nav.nav-menu a:hover {
+    text-decoration: underline;
+  }
 }
 .skills-page .grid {
   display: grid;
@@ -101,8 +108,9 @@ html[data-theme="light"] {
   --muted: #475569;
   --txt: #0b0b10;
   --line: #e5e7eb;
-  --accent: #22c55e; /* green-500 */
-  --accent2: #d8b4fe; /* violet-300 (lilac) */
+  --accent: #86efac; /* green-300 (lighter green) */
+  --accent2: #d8b4fe; /* violet-300 (slightly darker lilac) */
+  --accent-mid: color-mix(in oklab, var(--accent) 55%, var(--accent2) 45%); /* blended midpoint for smoother fade */
 }
 html,
 body {
@@ -185,8 +193,14 @@ html[data-theme="light"] .profile-image {
   display: block;
 }
 html[data-theme="light"] .profile-ring {
-  background: radial-gradient(circle at 50% 50%, var(--accent) 91%, var(--accent2) 100%);
-  background: radial-gradient(circle closest-side, var(--accent) calc(100% - var(--ring)), var(--accent2) 100%);
+  /* Gentle multi-stop fade across visible ring band */
+  background: radial-gradient(
+    circle closest-side,
+    var(--accent) 0%,
+    var(--accent) 55%,
+    var(--accent-mid) 75%,
+    var(--accent2) 100%
+  );
 }
 /* Theme toggle button (was corrupted by previous edit; restoring) */
 .theme-toggle {
