@@ -1,0 +1,387 @@
+:root {
+  --bg: #0b0b10;
+  --panel: #12131a;
+  --muted: #aab1c3;
+  --txt: #e9eef7;
+  --line: #212536;
+  --accent: #9be7ff;
+  --accent2: #ff9bff;
+  --ok: #8ff0a4;
+  --err: #ff9ba8;
+  --card: #151827;
+  --focus: 0 0 0 2px rgba(155, 231, 255, 0.45),
+    0 0 18px rgba(255, 155, 255, 0.25);
+}
+/* Light theme overrides for booking */
+html[data-theme="light"] {
+  --bg: #f8fafc;
+  --panel: #ffffff;
+  --muted: #475569;
+  --txt: #0b0b10;
+  --line: #e5e7eb;
+  --accent: #0ea5e9;
+  --accent2: #a855f7;
+  --ok: #16a34a;
+  --err: #ef4444;
+  --card: #ffffff;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--txt);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial,
+    sans-serif;
+}
+a {
+  color: var(--accent);
+}
+/* Use the global .wrap sizing so header matches other pages */
+.wrap {
+  max-width: var(--max);
+  margin-inline: auto;
+  padding: 20px;
+}
+
+.booking-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
+.booking-brand {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.booking-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  display: grid;
+  place-items: center;
+  color: #0b0b10;
+  font-weight: 800;
+}
+h1 {
+  font-size: clamp(22px, 4vw, 34px);
+  margin: 0;
+}
+.sub {
+  color: var(--muted);
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid #20253a;
+  border-radius: 14px;
+  padding: 16px;
+}
+html[data-theme="light"] .card {
+  border-color: #e2e8f0;
+}
+
+/* progress */
+.progress {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0 18px;
+}
+.dot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+}
+.dot .num {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: #121526;
+  border: 1px solid #2a2f41;
+  display: grid;
+  place-items: center;
+}
+.dot.active {
+  color: var(--txt);
+}
+.dot.active .num {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #0b0b10;
+  font-weight: 800;
+  box-shadow: var(--focus);
+}
+.dot.done .num {
+  background: linear-gradient(135deg, #74dfa1, #a5f0ff);
+  color: #0b0b10;
+  font-weight: 800;
+}
+
+/* grid */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+label {
+  display: block;
+  margin: 0 0 8px;
+}
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+button,
+textarea {
+  font: inherit;
+}
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #2a2f41;
+  background: #0f1220;
+  color: var(--txt);
+}
+input:focus,
+select:focus,
+button:focus {
+  outline: none;
+  box-shadow: var(--focus);
+}
+
+.btn {
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  color: #0b0b10;
+  font-weight: 700;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+.btn.secondary {
+  background: #191b26;
+  color: var(--txt);
+  border: 1px solid #2a2f41;
+}
+.actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.slots {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+@media (max-width: 700px) {
+  .slots {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.slot {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #2a2f41;
+  background: #0f1220;
+  text-align: center;
+  cursor: pointer;
+  color: var(--txt);
+}
+.slot[aria-pressed="true"] {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #0b0b10;
+  font-weight: 800;
+}
+
+.slot:disabled {
+  background: #1a1a1a;
+  color: #666;
+  cursor: not-allowed;
+  border: 1px solid #333;
+  opacity: 0.5;
+}
+
+.slot:disabled:hover {
+  background: #1a1a1a;
+  color: #666;
+}
+
+.review {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.review div {
+  background: #0f1220;
+  border: 1px solid #2a2f41;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 14px;
+}
+.error {
+  color: var(--err);
+  font-size: 14px;
+}
+.success {
+  background: #0f1b14;
+  border: 1px solid #224330;
+  color: #b9ffd2;
+  padding: 14px;
+  border-radius: 12px;
+}
+
+/* Better date input styling */
+/* Better date input styling with gradient arrow */
+input[type="date"] {
+  position: relative;
+  background: #0f1220;
+  border: 1px solid #2a2f41;
+  border-radius: 10px;
+  padding: 12px;
+  color: var(--txt);
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%239be7ff;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23ff9bff;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M2 4l6 6 6-6' stroke='url(%23grad)' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px 16px;
+  cursor: pointer;
+  margin-left: 8px;
+  width: 20px;
+  height: 20px;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-clear-button {
+  display: none;
+}
+
+input[type="date"]::-webkit-datetime-edit {
+  color: var(--txt);
+}
+
+input[type="date"]::-webkit-datetime-edit-text {
+  color: var(--muted);
+}
+
+input[type="date"]::-webkit-datetime-edit-month-field,
+input[type="date"]::-webkit-datetime-edit-day-field,
+input[type="date"]::-webkit-datetime-edit-year-field {
+  color: var(--txt);
+  background: transparent;
+}
+
+input[type="date"]:focus {
+  outline: none;
+  box-shadow: var(--focus);
+}
+
+input[type="date"]:hover::-webkit-calendar-picker-indicator {
+  opacity: 0.8;
+}
+
+.back-nav {
+  text-align: center;
+  padding: 16px 20px 0;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.back-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.back-link:hover {
+  color: var(--accent2);
+  border-bottom-color: var(--accent);
+}
+
+/* =============================
+   Light mode component overrides
+   ============================= */
+/* Inputs/selects in light */
+html[data-theme="light"] input[type="text"],
+html[data-theme="light"] input[type="email"],
+html[data-theme="light"] input[type="tel"],
+html[data-theme="light"] select {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: #0b0b10;
+}
+
+/* Date input in light */
+html[data-theme="light"] input[type="date"] {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: #0b0b10;
+}
+
+/* Secondary buttons in light */
+html[data-theme="light"] .btn.secondary {
+  background: #f1f5f9;
+  color: #0b0b10;
+  border: 1px solid #cbd5e1;
+}
+
+/* Time slots in light */
+html[data-theme="light"] .slot {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: #0b0b10;
+}
+html[data-theme="light"] .slot:disabled,
+html[data-theme="light"] .slot:disabled:hover {
+  background: #f1f5f9;
+  border-color: #e5e7eb;
+  color: #94a3b8;
+}
+
+/* Review boxes in light */
+html[data-theme="light"] .review div {
+  background: #ffffff;
+  border-color: #e2e8f0;
+}
+
+/* Progress dots (inactive) in light */
+html[data-theme="light"] .dot .num {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+/* Success notice in light */
+html[data-theme="light"] .success {
+  background: #ecfdf5;
+  border-color: #86efac;
+  color: #065f46;
+}

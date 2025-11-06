@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Prescription / Vaccine Booking — 3‑Step Microflow</title>
+    <meta name="description"
+        content="A streamlined 3‑step booking flow prototype that reduces clicks and cognitive load compared to traditional 6‑step forms." />
+        <link rel="stylesheet" href="../../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="css/style.css">
+    <script>(function(){try{var t=localStorage.getItem('nf-theme')||localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+</head>
+
+<body>
+    <div class="wrap">
+    <header>
+        <div class="brand">
+            <a href="../../index.html">
+                <img src="../../img/nflogo.jpg" alt="NF Logo" class="logo" />
+            </a>
+            <div>
+                <strong>Nicole Fedyszyn</strong><br>
+                <span style="color:var(--muted)">Web Developer Bridging Design, Data & Healthcare</span>
+            </div>
+        </div>
+        <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav aria-label="Primary" class="nav-menu">
+            <a href="../../index.html">Home</a>
+            <a href="../../projects.html">Projects</a>
+            <a href="../../skills.html">Skills</a>
+            <a href="../../about.html">About</a>
+            <a href="../../contact.html">Contact</a>
+        </nav>
+    </header>
+    </div>
+    
+    <div class="wrap">
+        <section class="booking-hero">
+            <div class="booking-brand">
+                
+                <div>
+                    <h1>Prescription / Vaccine Booking</h1>
+                    <div class="sub">3‑step microflow prototype (reduces typical 6 steps by combining choices +
+                        auto‑defaults)</div>
+                </div>
+            </div>
+        </section>
+
+        <nav aria-label="Progress" class="progress" id="progress">
+            <div class="dot active" data-step="1">
+                <div class="num" aria-hidden="true">1</div> Service & Location
+            </div>
+            <div class="dot" data-step="2">
+                <div class="num" aria-hidden="true">2</div> Date & Time
+            </div>
+            <div class="dot" data-step="3">
+                <div class="num" aria-hidden="true">3</div> Your Details
+            </div>
+        </nav>
+
+        <section class="card" id="step1" aria-labelledby="s1h">
+            <h2 id="s1h">Step 1 — Choose service & location</h2>
+            <div class="grid">
+                <div>
+                    <label for="service">Service</label>
+                    <select id="service" aria-describedby="service-hint">
+                        <option value="">Select…</option>
+                        <option>Flu vaccine</option>
+                        <option>COVID‑19 vaccine</option>
+                        <option>Rx pick‑up consult</option>
+                    </select>
+                    <div class="hint" id="service-hint">Common services first. You can refine later if needed.</div>
+                </div>
+                <div>
+                    <label for="location">Location</label>
+                    <select id="location">
+                        <option value="">Select…</option>
+                        <option>Downtown Pharmacy</option>
+                        <option>West End Pharmacy</option>
+                        <option>Southgate Pharmacy</option>
+                    </select>
+                </div>
+            </div>
+            <div class="actions">
+                <button class="btn" id="to2">Continue</button>
+            </div>
+        </section>
+
+        <section class="card" id="step2" hidden aria-labelledby="s2h">
+            <h2 id="s2h">Step 2 — Pick a date & time</h2>
+            <div class="grid">
+                <div>
+                    <label for="date">Date</label>
+                    <input type="date" id="date" aria-describedby="date-hint" />
+                    <div class="hint" id="date-hint">Defaults to the soonest day with availability.</div>
+                </div>
+                <div>
+                    <label>Available times</label>
+                    <div class="slots" id="slots" role="group" aria-label="Time slots"></div>
+                </div>
+            </div>
+            <div class="actions">
+                <button class="btn secondary" id="back1">Back</button>
+                <button class="btn" id="to3">Continue</button>
+            </div>
+        </section>
+
+        <section class="card" id="step3" hidden aria-labelledby="s3h">
+            <h2 id="s3h">Step 3 — Your details & confirm</h2>
+            <div class="grid">
+                <div>
+                    <label for="name">Full name</label>
+                    <input type="text" id="name" autocomplete="name" />
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" autocomplete="email" />
+                </div>
+                <div>
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" autocomplete="tel" />
+                </div>
+                <div>
+                    <label for="notes">Notes (optional)</label>
+                    <input type="text" id="notes" placeholder="e.g., accessibility needs" />
+                </div>
+            </div>
+
+            <h3>Review</h3>
+            <div class="review" id="review"></div>
+            <div class="actions">
+                <button class="btn secondary" id="back2">Back</button>
+                <button class="btn" id="confirm">Confirm booking</button>
+            </div>
+            <div id="err" class="error" role="alert" hidden>Please fill name and a valid email, and select a time.</div>
+        </section>
+
+        <section class="card" id="done" hidden>
+            <h2>Booked!</h2>
+            <p class="success">Your appointment is confirmed. A confirmation email will be sent shortly. (Prototype only
+                — no email is sent.)</p>
+            <p><a href="#" id="new">Book another appointment</a></p>
+        </section>
+
+        <section class="card" style="margin-top:18px">
+            <h2>What makes this a “microflow”</h2>
+            <ul>
+                <li><strong>Combines steps:</strong> Service + Location (was 2 screens) → 1 screen. Date + Time picker
+                    with smart defaults → 1 screen.</li>
+                <li><strong>Smart defaults:</strong> Prefills the earliest available date and preselects the first open
+                    slot after user picks a date.</li>
+                <li><strong>Inline review:</strong> Shows a review card before confirmation to avoid a separate “review”
+                    page.</li>
+                <li><strong>Keyboard & screen‑reader friendly:</strong> Focus styles, ARIA labels, and clear headings.
+                </li>
+            </ul>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+    <script src="../../js/hamburger.js"></script>
+    <script src="../../js/theme-toggle.js"></script>
+</body>
+
+</html>
