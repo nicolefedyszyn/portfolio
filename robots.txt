@@ -1,1 +1,4 @@
-User-agent: *Allow: /Sitemap: https://www.fed-dev.ca/sitemap.xml
+User-agent: *
+Allow: /
+
+Sitemap: https://fed-dev.ca/sitemap.xml
