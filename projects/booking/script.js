@@ -1,24 +1,27 @@
 // ===== Prescription / Vaccine Booking — Script =====
+document.addEventListener('DOMContentLoaded', () => {
+  // Guard: if required elements are missing, abort silently
+  const step1El = document.getElementById('step1');
+  const step2El = document.getElementById('step2');
+  const step3El = document.getElementById('step3');
+  const progressWrap = document.getElementById('progress');
+  if (!step1El || !step2El || !step3El || !progressWrap) return;
 
-// Simple state
-const state = {
-  service: "",
-  location: "",
-  date: "",
-  time: "",
-  name: "",
-  email: "",
-  phone: "",
-  notes: "",
-};
+  // Simple state
+  const state = {
+    service: "",
+    location: "",
+    date: "",
+    time: "",
+    name: "",
+    email: "",
+    phone: "",
+    notes: "",
+  };
 
-// Steps & progress
-const steps = [
-  document.getElementById("step1"),
-  document.getElementById("step2"),
-  document.getElementById("step3"),
-];
-const progress = document.getElementById("progress").children;
+  // Steps & progress
+  const steps = [step1El, step2El, step3El];
+  const progress = progressWrap.children;
 
 // Step 1
 const service = document.getElementById("service");
@@ -49,15 +52,45 @@ const phoneEl = document.getElementById("phone");
 const notesEl = document.getElementById("notes");
 const err = document.getElementById("err");
 document.getElementById("back2").addEventListener("click", () => go(2));
+
+// Simple field-level validators
+function isValidEmail(v) {
+  // intentionally permissive for prototype; accepts most common emails
+  return /.+@.+\..+/.test(v);
+}
+
+// When inputs change, hide the error to keep the button interactive and feedback fresh
+[nameEl, emailEl, phoneEl, notesEl].forEach((el) => {
+  el.addEventListener("input", () => {
+    err.hidden = true;
+  });
+});
+
 document.getElementById("confirm").addEventListener("click", () => {
   state.name = nameEl.value.trim();
   state.email = emailEl.value.trim();
   state.phone = phoneEl.value.trim();
   state.notes = notesEl.value.trim();
-  if (!state.name || !/^\S+@\S+\.\S+$/.test(state.email) || !state.time) {
+
+  // Validate and focus first invalid field
+  if (!state.name) {
     err.hidden = false;
+    nameEl.focus();
     return;
   }
+  if (!isValidEmail(state.email)) {
+    err.hidden = false;
+    emailEl.focus();
+    return;
+  }
+  if (!state.time) {
+    // If somehow no time is set, take user back to step 2 and hint to pick a time
+    err.hidden = false;
+    go(2);
+    slots.focus();
+    return;
+  }
+
   err.hidden = true;
   go("done");
 });
@@ -88,7 +121,11 @@ function go(step) {
   // focus first field of step for a11y
   if (step === 1) service.focus();
   if (step === 2) date.focus();
-  if (step === 3) nameEl.focus();
+  if (step === 3) {
+    // clear any previous error when arriving on confirm step
+    if (err) err.hidden = true;
+    nameEl.focus();
+  }
 }
 
 function initDateAndSlots() {
@@ -160,6 +197,8 @@ function renderSlots() {
       );
       btn.setAttribute("aria-pressed", "true");
       state.time = t;
+      // hide any lingering error once a valid time is picked
+      err.hidden = true;
     });
     slots.appendChild(btn);
   });
@@ -197,5 +236,6 @@ function reset() {
   go(1);
 }
 
-// init
-go(1);
+  // init
+  go(1);
+});

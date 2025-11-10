@@ -437,10 +437,15 @@ footer {
   }
   /* Ensure projects cards stack one-per-row on mobile */
   .about-centered .grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-items: stretch;
+    display: flex;                 /* switch to flex for mobile to avoid any grid gap quirks */
+    flex-direction: column;        /* stack cards vertically */
+    align-items: stretch;          /* cards fill width */
+    gap: 20px;                     /* modest, consistent spacing between cards */
   }
+  /* Fallback for browsers without flex gap support */
+  .about-centered .grid > * + * { margin-top: 20px; }
+  /* Ensure spacing is exclusively managed by gap */
+  body.projects-page .about-centered .grid > .card { margin-bottom: 0; }
   .two {
     grid-template-columns: 1fr;
   }

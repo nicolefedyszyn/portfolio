@@ -19,8 +19,9 @@ html[data-theme="light"] {
   --muted: #475569;
   --txt: #0b0b10;
   --line: #e5e7eb;
-  --accent: #0ea5e9;
-  --accent2: #a855f7;
+  /* Align with site palette: green + lilac */
+  --accent: #86efac; /* green */
+  --accent2: #d8b4fe; /* lilac */
   --ok: #16a34a;
   --err: #ef4444;
   --card: #ffffff;
@@ -120,7 +121,7 @@ html[data-theme="light"] .card {
   box-shadow: var(--focus);
 }
 .dot.done .num {
-  background: linear-gradient(135deg, #74dfa1, #a5f0ff);
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
   color: #0b0b10;
   font-weight: 800;
 }
@@ -186,6 +187,8 @@ button:focus {
   gap: 10px;
   justify-content: flex-end;
   margin-top: 16px;
+  position: relative;
+  z-index: 1; /* keep buttons above any notices below */
 }
 
 .slots {
@@ -245,7 +248,11 @@ button:focus {
 .error {
   color: var(--err);
   font-size: 14px;
+  position: relative; /* prevent accidental overlay contexts */
+  z-index: 0; /* ensure it never stacks above action buttons */
 }
+.error[hidden] { display: none !important; }
+.error:not([hidden]) { margin-top: 12px; pointer-events: none; }
 .success {
   background: #0f1b14;
   border: 1px solid #224330;
@@ -253,6 +260,8 @@ button:focus {
   padding: 14px;
   border-radius: 12px;
 }
+/* Ensure any element marked hidden truly does not render even if other styles set display */
+[hidden] { display: none !important; }
 
 /* Better date input styling */
 /* Better date input styling with gradient arrow */
@@ -384,4 +393,14 @@ html[data-theme="light"] .success {
   background: #ecfdf5;
   border-color: #86efac;
   color: #065f46;
+}
+
+/* Light theme: progress done dots use the green→purple gradient */
+html[data-theme="light"] .dot.done .num {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+}
+
+/* Light theme: date picker indicator arrow in green→purple */
+html[data-theme="light"] input[type="date"]::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2386efac;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23d8b4fe;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M2 4l6 6 6-6' stroke='url(%23grad)' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 }
